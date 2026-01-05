@@ -1,0 +1,7 @@
+{
+  "name": "Tifo Master - Create Your Stadium Legend",
+  "description": "Transform your photo into a massive stadium tifo mosaic supported by thousands of fans. Perfect for CAN and international championships.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
