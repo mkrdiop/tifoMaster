@@ -76,12 +76,12 @@ const App: React.FC = () => {
         date: Date.now()
       };
       setGallery(prev => [newItem, ...prev]);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Generation error:", error);
       setState(prev => ({ 
         ...prev, 
         status: 'error', 
-        errorMessage: "Désolé, une erreur est survenue lors de la création de votre Tifo." 
+        errorMessage: error.message || "Désolé, une erreur est survenue lors de la création de votre Tifo." 
       }));
     }
   };
@@ -228,7 +228,7 @@ const App: React.FC = () => {
                 {state.status === 'error' && (
                    <div className="text-center py-20 bg-slate-900 rounded-3xl border border-red-900/50">
                      <h2 className="text-2xl font-bold text-white mb-4">Erreur</h2>
-                     <p className="text-slate-400 mb-8">{state.errorMessage}</p>
+                     <p className="text-slate-400 mb-8 whitespace-pre-wrap">{state.errorMessage}</p>
                      <button onClick={() => setStep(2)} className="bg-slate-800 text-white font-bold px-8 py-4 rounded-xl">Réessayer</button>
                    </div>
                 )}
